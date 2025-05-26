@@ -1,0 +1,21 @@
+[project]
+name = "ingestion-agent"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "orton", email = "ortonhlauli@outlook.com"},
+]
+dependencies = ["tweepy>=4.15.0", "pytest>=8.3.5", "pytest-cov>=6.1.1", "python-dotenv>=1.1.0", "confluent-kafka>=2.10.0", "shortuuid>=1.0.13", "fastapi>=0.115.12", "uvicorn>=0.34.2", "faker>=37.3.0"]
+requires-python = "==3.10.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.scripts]
+start = "python app/main.py"
+dev = "uvicorn app/main.py --reload"
+test = "pytest tests/"
+serve = "uvicorn app.main:app --host 0.0.0.0 --port 8085 --reload"

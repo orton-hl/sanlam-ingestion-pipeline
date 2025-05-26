@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  jobmanager:
+    image: flink:2.0.0
+    container_name: flink-jobmanager
+    ports:
+      - "8081:8081"  
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    command: jobmanager
+    networks:
+      - flink-net
+
+  taskmanager:
+    image: flink:2.0.0
+    container_name: flink-taskmanager
+    depends_on:
+      - jobmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    command: taskmanager
+    networks:
+      - flink-net
+
+networks:
+  flink-net:
+    driver: bridge

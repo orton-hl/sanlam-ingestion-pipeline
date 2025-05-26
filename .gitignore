@@ -1,0 +1,3 @@
+/.idea/
+/ingestion-agent/.venv/
+/ingestion-agent/.pdm-python
