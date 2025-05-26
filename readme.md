@@ -1,3 +1,15 @@
+```declarative
+Completed
+* Ingest simulated data using kafka flink-data stream and populate into timescale DB using flink-sink
+* Run 'real time' window aggregation of data from kafka -> flink -> kibana & elastic search
+
+NOT Completed
+* Ingest data from file to db, ( took too long working on a parser for Excel )
+* Setup scheduled ingestion ( was unable to get docker-compose to properly submit flink job jar )
+
+```
+
+
 # Flink + Kafka + Elasticsearch + TimescaleDB Stack
 
 This sets up a full data ingestion, streaming, and analytics stack, combining:
@@ -16,19 +28,20 @@ This sets up a full data ingestion, streaming, and analytics stack, combining:
 
 ## Services Overview
 
-| Service         | Description                                        | Ports         |   |
-|-----------------|----------------------------------------------------|---------------|---|
-| Flink JobManager| Flink master node                                  | `8081`        |  	http://localhost:8081 |
-| Flink TaskManager| Flink worker node                                 |               |   |
-| Zookeeper       | Kafka coordination service                         | `2181`        |   |
-| Kafka Ingest    | Primary Kafka broker                               | `9092`, `29092` |   |
-| Kafka DLQ       | Dead-letter queue broker                           | `9093`, `29093` |   |
-| Kafka Logs      | Logging broker                                     | `9094`, `29094` |   |
-| Kafka UI        | Web UI for Kafka cluster                           | `8080`        |  	http://localhost:8080 |
-| Elasticsearch   | Search and log storage engine                      | `9200`        | http://localhost:9200  |
-| Kibana          | Visualization layer for Elasticsearch              | `5601`        | 	http://localhost:5601  |
-| TimescaleDB     | Time-series database based on PostgreSQL           | `5433`        |   |
-| Kafka Setup     | Creates Kafka topics after brokers are ready       |               |   |
+| Service              | Description                                  | Ports         |   |
+|----------------------|----------------------------------------------|---------------|---|
+| Flink JobManager     | Flink master node                            | `8081`        |  	http://localhost:8081 |
+| Flink TaskManager    | Flink worker node                            |               |   |
+| Zookeeper            | Kafka coordination service                   | `2181`        |   |
+| Kafka Ingest         | Primary Kafka broker                         | `9092`, `29092` |   |
+| Kafka DLQ            | Dead-letter queue broker                     | `9093`, `29093` |   |
+| Kafka Logs           | Logging broker                               | `9094`, `29094` |   |
+| Kafka UI             | Web UI for Kafka cluster                     | `8080`        |  	http://localhost:8080 |
+| Elasticsearch        | Search and log storage engine                | `9200`        | http://localhost:9200  |
+| Kibana               | Visualization layer for Elasticsearch        | `5601`        | 	http://localhost:5601  |
+| TimescaleDB          | Time-series database based on PostgreSQL     | `5433`        |   |
+| Kafka Setup          | Creates Kafka topics after brokers are ready |               |   |
+| mock ingestion agent | Simulates messages                           |               |  http://localhost:8085/docs# |
 
 ---
 

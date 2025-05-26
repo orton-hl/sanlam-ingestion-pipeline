@@ -1,3 +1,6 @@
 /.idea/
 /ingestion-agent/.venv/
 /ingestion-agent/.pdm-python
+/flink/jobs/analytics-flink-job/.idea/
+/flink/jobs/ingest-batch-job/.idea/
+/flink/jobs/ingest-stream-job/.idea/
