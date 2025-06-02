@@ -14,6 +14,10 @@ conf = {
 }
 producer = Producer(conf)
 
+print('###############################')
+print(conf)
+print('###############################')
+
 def log_delivery_report(err, msg):
     key = msg.key().decode('utf-8') if msg.key() else None
     # if err is not None:
