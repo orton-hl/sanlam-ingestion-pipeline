@@ -15,3 +15,6 @@ flink/jobs/ingest-batch-job/target/*
 flink/jobs/ingest-batch-job/target/
 flink/jobs/analytics-flink-job/target/
 flink/jobs/analytics-flink-job/target/*
+flink/jobs/ingest-stream-job/target/
+flink/jobs/ingest-stream-job/target/*
+flink/jobs/ingest-stream-job/target/*

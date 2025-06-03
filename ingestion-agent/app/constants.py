@@ -1,11 +1,11 @@
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from confluent_kafka import Producer
 import socket
 
 from app.util import generate_trace_id
 
-load_dotenv()
+# load_dotenv()
 
 def get_env_or_raise(var_name):
     value = os.getenv(var_name)
@@ -15,8 +15,6 @@ def get_env_or_raise(var_name):
 
 ENV = get_env_or_raise("ENV")
 AGENT_ID =  generate_trace_id()
-
-DEBUG_MODE = get_env_or_raise("DEBUG").lower() == "true"
 LOG_LEVEL = get_env_or_raise("LOG_LEVEL")
 
 KAFKA_INGEST_BOOTSTRAP_SERVERS = get_env_or_raise("KAFKA_INGEST_BOOTSTRAP_SERVERS")
@@ -44,7 +42,6 @@ AGENT_META = {
 
 print(f"ENV: {ENV}")
 print(f"AGENT_ID: {AGENT_ID}")
-print(f"DEBUG_MODE: {DEBUG_MODE}")
 print(f"LOG_LEVEL: {LOG_LEVEL}")
 print(f"KAFKA_INGEST_BOOTSTRAP_SERVERS: {KAFKA_INGEST_BOOTSTRAP_SERVERS}")
 print(f"KAFKA_INGEST_TOPIC: {KAFKA_INGEST_TOPIC}")
