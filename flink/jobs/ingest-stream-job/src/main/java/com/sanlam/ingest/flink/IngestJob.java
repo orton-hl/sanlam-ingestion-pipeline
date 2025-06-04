@@ -21,7 +21,6 @@ import java.time.format.DateTimeFormatter;
 
 public class IngestJob {
     public static void main(String[] args) throws Exception {
-        final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
         String kafkaBootstrapServers = System.getenv("KAFKA_INGEST_BOOTSTRAP_SERVERS");
         String kafkaTopic = System.getenv("KAFKA_INGEST_TOPIC");
@@ -30,6 +29,8 @@ public class IngestJob {
         String jdbcUrl = System.getenv("POSTGRES_JDBC_URL");
         String jdbcUser = System.getenv("POSTGRES_USER");
         String jdbcPassword = System.getenv("POSTGRES_PASSWORD");
+
+        final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
         KafkaSource<String> kafkaSource = KafkaSource.<String>builder()
                 .setBootstrapServers(kafkaBootstrapServers)

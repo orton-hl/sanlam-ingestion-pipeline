@@ -12,18 +12,44 @@ NOT Completed
 
 # Flink + Kafka + Elasticsearch + TimescaleDB Stack
 
-This sets up a full data ingestion, streaming, and analytics stack, combining:
-
-- **Apache Flink** for real-time data processing
-- **Apache Kafka** (with DLQ and multiple brokers) for message queuing
-- **Elasticsearch + Kibana** for log storage and visualization
-- **TimescaleDB** for time-series data persistence
-- **Kafka UI** for Kafka cluster monitoring
-
 ![Alt Text](infrastructure.jpeg)
+
+This sets up a full data ingestion, streaming, and analytics stack, combining:
+- **Docker**
+    - Python
+- **Apache Flink** for real-time data processing
+  - Connectors out of the box
+  - Analytics tools
+    -  Notebook, SQL, Python, ML ,
+  - Con 
+    - not ideal for scheduled tasks
+    - work around available with in library or external event scheduler
+- **Apache Kafka** (with DLQ and multiple brokers) for message queuing
+  - Scaling, 
+  - Fault tolerance () , 
+  - High through 
+  - Visibility 
+- **Elasticsearch + Kibana** 
+  - log storage and visualization
+  - Scaling
+  - Ease of integration
+  - Analytics tools
+- **TimescaleDB** 
+  - time-series data persistence
+- **Kafka UI** 
+  - Kafka cluster monitoring
 
 > All services run without persistent storage — ideal for development and testing environments.
 
+
+### Ingestion Agent logic
+
+![Alt Text](mermaid-diagram-2025-06-04-101842.png)
+
+
+### Flink setup high level
+
+![Alt Text](mermaid-diagram-2025-06-04-101718.png)
 ---
 
 ## Services Overview

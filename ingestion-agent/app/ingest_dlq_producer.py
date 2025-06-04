@@ -10,6 +10,10 @@ conf = {
 }
 producer = Producer(conf)
 
+print('###############################')
+print(conf)
+print('###############################')
+
 def dlq_delivery_report(err, msg):
     if err is not None:
         print(f"Delivery to DLQ failed: {err}")

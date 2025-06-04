@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+
+  sanlamIngestionAgent:
+    image: ghcr.io/orton-hl/sanlam-ingestion-agent:v1.0.0
+    container_name: sanlamIngestionAgent
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+
+      - KAFKA_INGEST_BOOTSTRAP_SERVERS=kafka-ingest:29092
+      - KAFKA_INGEST_TOPIC=tpc-ingest
+
+      - KAFKA_DLQ_BOOTSTRAP_SERVERS=kafka-ingest-dlq:29093
+      - KAFKA_DLQ_TOPIC=tpc-ingest-dlq
+      
+      - KAFKA_LOGS_BOOTSTRAP_SERVERS=kafka-logs:29094
+      - KAFKA_LOGS_TOPIC=tpc-ingest-logs
+
+      - POSTGRES_JDBC_URL=${POSTGRES_JDBC_URL}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+
+      - KIBANA=${KIBANA}
+      - ELASTIC_SEARCH=${ELASTIC_SEARCH_URL}
+
+      - ENV=${ENV}
+      - AGENT_ID=${AGENT_ID}
+      - DEBUG_MODE=${DEBUG_MODE}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - INGEST_CONFIG_SOURCE=${INGEST_CONFIG_SOURCE}
+      - INGEST_CONFIG_VERSION=${INGEST_CONFIG_VERSION}
+      - INGEST_CONFIG_X_BEARER_TOKEN=${INGEST_CONFIG_X_BEARER_TOKEN}
+    ports:
+      - "8085:8085"
+    networks:
+      - ingestion-agent-net
+
+# Define all networks used
+networks:
+  ingestion-agent-net:
+    driver: bridge

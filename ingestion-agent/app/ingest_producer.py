@@ -9,6 +9,10 @@ from confluent_kafka import Producer
 conf = { 'bootstrap.servers' : constants.KAFKA_INGEST_BOOTSTRAP_SERVERS }
 producer = Producer(conf)
 
+print('###############################')
+print(conf)
+print('###############################')
+
 def handle_response(err, msg):
     key = msg.key().decode('utf-8') if msg.key() else None
     content = msg.value().decode('utf-8') if msg.value() else None

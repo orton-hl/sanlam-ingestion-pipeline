@@ -4,3 +4,17 @@
 /flink/jobs/analytics-flink-job/.idea/
 /flink/jobs/ingest-batch-job/.idea/
 /flink/jobs/ingest-stream-job/.idea/
+/flink/jobs/ingest-stream-job/.idea/
+./ingestion-agent/app/__pycache__
+ingestion-agent/app/__pycache__
+ingestion-agent/app/__pycache__
+ingestion-agent/app/__pycache__/*
+/flink/jobs/analytics-flink-job/target
+/flink/jobs/analytics-flink-job/target/*
+flink/jobs/ingest-batch-job/target/*
+flink/jobs/ingest-batch-job/target/
+flink/jobs/analytics-flink-job/target/
+flink/jobs/analytics-flink-job/target/*
+flink/jobs/ingest-stream-job/target/
+flink/jobs/ingest-stream-job/target/*
+flink/jobs/ingest-stream-job/target/*
